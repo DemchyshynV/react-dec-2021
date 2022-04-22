@@ -1,7 +1,7 @@
 const App = () => {
     return (
         <div>
-            oktenasigasdjasudyfasgyd
+            okten
         </div>
     );
 };
