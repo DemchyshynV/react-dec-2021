@@ -27,7 +27,7 @@ const AuthForm = () => {
                 navigate('/login')
             } else {
                 await dispatch(authActions.login({user}))
-                navigate(state.pathname, {replace: true})
+                navigate(state?.pathname || '/', {replace: true})
             }
         } catch (e) {
             console.log('dddddd');
@@ -42,9 +42,9 @@ const AuthForm = () => {
             <input type="text" placeholder={'password'} {...register('password')}/>
             <button>{isLogin ? 'login' : 'register'}</button>
             <div>
-                <div>{errors?.username&& <span>{errors.username[0]}</span>}</div>
-                <div>{errors?.password&& <span>{errors.password[0]}</span>}</div>
-                {loginError&& <span>Wrong username or password</span>}
+                <div>{errors?.username && <span>{errors.username[0]}</span>}</div>
+                <div>{errors?.password && <span>{errors.password[0]}</span>}</div>
+                {loginError && <span>Wrong username or password</span>}
             </div>
         </form>
     );
